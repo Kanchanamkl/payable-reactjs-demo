@@ -10,6 +10,7 @@ const PaymentForm = () => {
   const [customerEmail, setCustomerEmail] = useState('john.doe@example.com');
   const [customerMobilePhone, setCustomerMobilePhone] = useState('0715117264');
   const [customerRefNo, setCustomerRefNo] = useState('CUST_' + Math.random().toString(36).substring(7));
+  const [apiResult, setApiResult] = useState(null);
 
   // Replace with your actual credentials (merchantToken should be server-side in production)
   const merchantKey = '42F77B3164786C34'; // Placeholder
