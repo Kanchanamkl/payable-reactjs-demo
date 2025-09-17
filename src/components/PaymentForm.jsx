@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { payablePayment } from 'payable-ipg-js';
-import { getCheckValue, getCheckValueToken } from '../utils/checkValue';
+import { getCheckValue, getCheckValueToken ,listSavedCards } from '../utils/checkValue';
 
 const PaymentForm = () => {
   const [amount, setAmount] = useState('100.00');
@@ -16,6 +16,15 @@ const PaymentForm = () => {
   const merchantToken = 'A20F06BD47DD8F97839729649462390E'; // Placeholder - DO NOT USE IN PRODUCTION CLIENT-SIDE
   const currencyCode = 'LKR';
   const testMode = true; // Sandbox mode
+
+  const handleListCards = async () => {
+    try {
+      const result = await listSavedCards(merchantKey, customerId, merchantToken, testMode);
+      setApiResult(result);
+    } catch (error) {
+      setApiResult({ error: 'Failed to list cards' });
+    }
+  };
 
   const handleOneTimePayment = () => {
     const checkValue = getCheckValue(merchantKey, invoiceId, amount, currencyCode, merchantToken);
@@ -92,6 +101,12 @@ const PaymentForm = () => {
       
       <button onClick={handleOneTimePayment}>Test One-Time Payment</button>
       <button onClick={handleTokenizePayment}>Test Tokenize & Pay</button>
+
+      <button onClick={handleListCards}>List Saved Cards</button>
+
+
+      <h3>API Result:</h3>
+      <pre>{JSON.stringify(apiResult, null, 2)}</pre>
     </div>
   );
 };
