@@ -17,6 +17,7 @@ const PaymentForm = () => {
   const merchantToken = 'A20F06BD47DD8F97839729649462390E'; // Placeholder - DO NOT USE IN PRODUCTION CLIENT-SIDE
   const currencyCode = 'LKR';
   const testMode = true; // Sandbox mode
+  const customerId = 'CUST123456789'; 
 
   const handleListCards = async () => {
     try {
