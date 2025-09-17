@@ -25,7 +25,7 @@ const PaymentForm = () => {
       orderDescription: 'Test One-Time Payment',
       invoiceId,
       logoUrl: 'https://ipgv2-comm.payable.lk/images/chocolate2.png',
-      notifyUrl: 'hhttps://payable-reactjs-demo.vercel.app', // Your server webhook
+      notifyUrl: 'https://payable-reactjs-demo.vercel.app', // Your server webhook
       returnUrl: 'https://payable-reactjs-demo.vercel.app', // Your success redirect
       merchantKey,
       customerFirstName,
@@ -51,7 +51,7 @@ const PaymentForm = () => {
       orderDescription: 'Test Tokenize Payment',
       invoiceId,
       logoUrl: 'https://ipgv2-comm.payable.lk/images/chocolate2.png',
-      notifyUrl: 'hhttps://payable-reactjs-demo.vercel.app', // Your server webhook
+      notifyUrl: 'https://payable-reactjs-demo.vercel.app', // Your server webhook
       returnUrl: 'https://payable-reactjs-demo.vercel.app', // Your success redirect
       merchantKey,
       customerFirstName,
