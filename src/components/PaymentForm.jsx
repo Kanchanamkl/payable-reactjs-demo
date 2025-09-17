@@ -19,14 +19,14 @@ const PaymentForm = () => {
 
   const handleOneTimePayment = () => {
     const checkValue = getCheckValue(merchantKey, invoiceId, amount, currencyCode, merchantToken);
-
+    console.log('Check Value (One-Time):', checkValue);
     const payment = {
       checkValue,
       orderDescription: 'Test One-Time Payment',
       invoiceId,
       logoUrl: 'https://ipgv2-comm.payable.lk/images/chocolate2.png',
-      notifyUrl: 'https://yoursite.com/v1/webhook/payment', // Your server webhook
-      returnUrl: 'https://yoursite.com/receipt', // Your success redirect
+      notifyUrl: 'hhttps://payable-reactjs-demo.vercel.app', // Your server webhook
+      returnUrl: 'https://payable-reactjs-demo.vercel.app', // Your success redirect
       merchantKey,
       customerFirstName,
       customerLastName,
@@ -45,14 +45,14 @@ const PaymentForm = () => {
 
   const handleTokenizePayment = () => {
     const checkValue = getCheckValueToken(merchantKey, invoiceId, amount, currencyCode, customerRefNo, merchantToken);
-
+    console.log('Check Value for Tokenize:', checkValue);
     const payment = {
       checkValue,
       orderDescription: 'Test Tokenize Payment',
       invoiceId,
       logoUrl: 'https://ipgv2-comm.payable.lk/images/chocolate2.png',
-      notifyUrl: 'https://yoursite.com/v1/webhook/payment',
-      returnUrl: 'https://yoursite.com/receipt',
+      notifyUrl: 'hhttps://payable-reactjs-demo.vercel.app', // Your server webhook
+      returnUrl: 'https://payable-reactjs-demo.vercel.app', // Your success redirect
       merchantKey,
       customerFirstName,
       customerLastName,
