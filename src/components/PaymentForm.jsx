@@ -14,7 +14,7 @@ const PaymentForm = () => {
 
   // Replace with your actual credentials (merchantToken should be server-side in production)
   const merchantKey = '42F77B3164786C34'; // Placeholder
-  const merchantToken = 'A20F06BD47DD8F97839729649462390E'; // Placeholder - DO NOT USE IN PRODUCTION CLIENT-SIDE
+  const merchantToken = '7F1C2868D8AAFCAF2F0D06F38EFF54F2'; // Placeholder - DO NOT USE IN PRODUCTION CLIENT-SIDE
   const currencyCode = 'LKR';
   const testMode = true; // Sandbox mode
   const customerId = 'CUST123456789'; 
