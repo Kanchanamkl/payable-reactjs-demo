@@ -64,27 +64,32 @@ const PaymentForm = () => {
     
     const payment = {
       checkValue,
-      // merchantKey,
-      amount,
-      currencyCode,
-      invoiceId,
       orderDescription: 'Test One-Time Payment',
+      invoiceId,
+      logoUrl: 'https://salon.run.place/images/logo.png',
+      notifyUrl: 'https://salon.run.place:8090/api/v1/payments/webhook',
+      returnUrl: `${window.location.origin}/#/payment-billing`,
+      merchantKey,
       customerFirstName,
       customerLastName,
-      customerEmail,
       customerMobilePhone: customerMobilePhone?.startsWith('+') ? 
-        customerMobilePhone : `+94${customerMobilePhone?.replace(/^0/, '')}`,
+      customerMobilePhone : `+94${customerMobilePhone?.replace(/^0/, '')}`,
+      customerPhone: '',
+      customerEmail,
       customerRefNo,
+      billingCompanyName: '',
+      billingAddressStreet: '123 Main Street',
+      billingAddressStreet2: '',
+      billingAddressCity: 'Colombo',
+      billingAddressStateProvince: 'Western',
+      billingAddressCountry: 'LKA',
+      billingAddressPostcodeZip: '00100',
+      amount,
+      currencyCode,
       paymentType: '1', // One-time payment
       isSaveCard: '0', // Not saving card for one-time payment
-      logoUrl: 'https://ipgv2-comm.payable.lk/images/chocolate2.png',
-      notifyUrl: 'https://payable-reactjs-demo.vercel.app',
-      returnUrl: 'https://payable-reactjs-demo.vercel.app',
-      billingAddressStreet: '123 Main Street',
-      billingAddressCity: 'Colombo',
-      billingAddressCountry: 'LKA',
-      billingAddressStateProvince: 'Western',
-      billingAddressPostcodeZip: '00100'
+      custom1: '',
+      custom2: ''
     };
 
     payablePayment(payment, testMode);
