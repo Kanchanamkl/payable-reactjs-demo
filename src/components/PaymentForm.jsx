@@ -28,7 +28,38 @@ const PaymentForm = () => {
     }
   };
 
+  function getCheckValueToken(
+    merchant_key,
+    invoice_id,
+    amount,
+    currency,
+    customer_ref_no,
+    merchant_token
+  ) {
+    // Step 1: Hash the merchant token
+    const mToken = CryptoJS.SHA512(merchant_token).toString().toUpperCase();
+  
+    // Step 2: Create the value string (includes customerRefNo for tokenization)
+    const txt =
+      merchant_key +
+      "|" +
+      invoice_id +
+      "|" +
+      amount +
+      "|" +
+      currency +
+      "|" +
+      customer_ref_no +
+      "|" +
+      mToken;
+  
+    // Step 3: Hash the entire value string
+    const checkValue = CryptoJS.SHA512(txt).toString().toUpperCase();
+    return checkValue;
+  }
+
   const handleOneTimePayment = () => {
+    // const checkValue = getCheckValue(merchantKey, invoiceId, amount, currencyCode, merchantToken);
     const checkValue = getCheckValue(merchantKey, invoiceId, amount, currencyCode, merchantToken);
     console.log('Check Value (One-Time):', checkValue);
     const payment = {
