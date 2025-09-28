@@ -59,27 +59,32 @@ const PaymentForm = () => {
   }
 
   const handleOneTimePayment = () => {
-    // const checkValue = getCheckValue(merchantKey, invoiceId, amount, currencyCode, merchantToken);
     const checkValue = getCheckValue(merchantKey, invoiceId, amount, currencyCode, merchantToken);
     console.log('Check Value (One-Time):', checkValue);
+    
     const payment = {
       checkValue,
-      orderDescription: 'Test One-Time Payment',
-      invoiceId,
-      logoUrl: 'https://ipgv2-comm.payable.lk/images/chocolate2.png',
-      notifyUrl: 'https://payable-reactjs-demo.vercel.app', // Your server webhook
-      returnUrl: 'https://payable-reactjs-demo.vercel.app', // Your success redirect
-      merchantKey,
-      customerFirstName,
-      customerLastName,
-      customerMobilePhone,
-      customerEmail,
-      billingAddressStreet: '123 Main Street',
-      billingAddressCity: 'Colombo',
-      billingAddressCountry: 'LK',
+      // merchantKey,
       amount,
       currencyCode,
-      paymentType: '1', // One-time
+      invoiceId,
+      orderDescription: 'Test One-Time Payment',
+      customerFirstName,
+      customerLastName,
+      customerEmail,
+      customerMobilePhone: customerMobilePhone?.startsWith('+') ? 
+        customerMobilePhone : `+94${customerMobilePhone?.replace(/^0/, '')}`,
+      customerRefNo,
+      paymentType: '1', // One-time payment
+      isSaveCard: '0', // Not saving card for one-time payment
+      logoUrl: 'https://ipgv2-comm.payable.lk/images/chocolate2.png',
+      notifyUrl: 'https://payable-reactjs-demo.vercel.app',
+      returnUrl: 'https://payable-reactjs-demo.vercel.app',
+      billingAddressStreet: '123 Main Street',
+      billingAddressCity: 'Colombo',
+      billingAddressCountry: 'LKA',
+      billingAddressStateProvince: 'Western',
+      billingAddressPostcodeZip: '00100'
     };
 
     payablePayment(payment, testMode);
